@@ -39,7 +39,7 @@ html(lang="ja")
             div.card-footer
               button.btn.btn-primary#inputButton( type  = "button") ファイルを選択
       //--------------------------------------------------------------------入力ファイル一覧
-      div.row
+      div.row.mb-3
         div.col-xs-12.col-sm-12.col-md-12.col-lg-12
           div.row
             div.col-xs-12.col-sm-12.col-md-12.col-lg-12
@@ -72,99 +72,103 @@ html(lang="ja")
       div.row
         div.col-xs-12.col-sm-12.col-md-12.col-lg-12
           h2 バッチ設定
-          div.well
-            div.row
-              div.col-sm-12.form-horizontal
+          div.row
+            div.col-sm-12
+              div.card.bg-light.mb-3.form-horizontal
                 form
                   fieldset
-                    legend 二値化設定
-                    div.form-group
-                      div.col-sm-2.text-right
-                        label 色
-                      div.col-sm-6
-                        input#colorBar(type="range"
+                    div.card-header
+                      legend 二値化設定
+                    div.card-body
+                      div.row.form-group
+                        div.col-sm-2.text-right
+                          label 色
+                        div.col-sm-6
+                          input#colorBar(type="range"
+                                          value="30")
+                        div.col-sm-1
+                          input.input-sm.form-control#color(type="text"
+                                                            value="30")
+                      div.row.form-group
+                        div.col-sm-2.text-right
+                          label 主線
+                        div.col-sm-6
+                          input#blackBar(type="range"
+                                          value="90")
+                        div.col-sm-1
+                          input.input-sm.form-control#black(type="text"
+                                                            value="90")
+                      div.row.form-group
+                        div.col-sm-2.text-right
+                          label 赤色トレス線
+                        div.col-sm-6
+                          input#redBar(type="range"
                                         value="30")
-                      div.col-sm-1
-                        input.input-sm.form-control#color(type="text"
+                        div.col-sm-1
+                          input.input-sm.form-control#red(type="text"
                                                           value="30")
-                    div.form-group
-                      div.col-sm-2.text-right
-                        label 主線
-                      div.col-sm-6
-                        input#blackBar(type="range"
-                                        value="90")
-                      div.col-sm-1
-                        input.input-sm.form-control#black(type="text"
-                                                          value="90")
-                    div.form-group
-                      div.col-sm-2.text-right
-                        label 赤色トレス線
-                      div.col-sm-6
-                        input#redBar(type="range"
-                                      value="30")
-                      div.col-sm-1
-                        input.input-sm.form-control#red(type="text"
-                                                        value="30")
-                    div.form-group
-                      div.col-sm-2.text-right
-                        label 青色トレス線
-                      div.col-sm-6
-                        input#blueBar(type="range"
-                                      value="30")
-                      div.col-sm-1
-                        input.input-sm.form-control#blue(type="text"
-                                                          value="30")
-                    //
-                      div.form-group
+                      div.row.form-group
+                        div.col-sm-2.text-right
+                          label 青色トレス線
+                        div.col-sm-6
+                          input#blueBar(type="range"
+                                        value="30")
+                        div.col-sm-1
+                          input.input-sm.form-control#blue(type="text"
+                                                            value="30")
+                      //
+                        div.row.form-group
+                          div.col-sm-2
+                            label オプション
+                          div.col-sm-10
+                            div.checkbox-inline
+                              input(type="checkbox")
+                              b GPUで処理(未実装)
+                        div.row.form-group
+                          div.col-sm-12
+                            button.btn.btn-default(type="button") プレビュー
+                            button.btn.btn-default(type="button") 初期設定に戻す
+          div.row
+            div.col-sm-12
+              div.card.bg-light.mb-3.form-horizontal
+                form
+                  fieldset
+                    div.card-header
+                      legend 保存設定
+                    div.card-body
+                      div.row.form-group
+                        div.col-sm-2.text-right
+                          label 出力ファイル名
+                        div.col-sm-5
+                          input.form-control.input-sm#fileName(type="text"
+                                                      placeholder="image_[###].png")
+                        div.col-sm-2.text-right
+                          label 開始番号
+                        div.col-sm-2
+                          input.form-control.input-sm#fileStart(type="text"
+                                                      placeholder="0")
+                      div.row.form-group
+                        div.col-sm-7
+                          p #の部分が数字になります。
+                            br
+                            | 例) "output[###].png"とした場合、
+                            | 出力されるファイルは"output000.png","output001.png","output002.png"...となります
+                        div.col-sm-4
+                          p 数字の開始番号です。
+                            br
+                            | ファイル名を001から始めたい場合には1とする必要があります。
+                      div.row.form-group
                         div.col-sm-2
                           label オプション
                         div.col-sm-10
+                          //
+                            div.checkbox-inline
+                              input(type="checkbox")
+                              b 1ビットカラー圧縮(未実装)
                           div.checkbox-inline
-                            input(type="checkbox")
-                            b GPUで処理(未実装)
-                      div.form-group
-                        div.col-sm-12
-                          button.btn.btn-default(type="button") プレビュー
-                          button.btn.btn-default(type="button") 初期設定に戻す
-          div.well
-            div.row
-              div.col-sm-12.form-horizontal
-                form
-                  fieldset
-                    legend 保存設定
-                    div.form-group
-                      div.col-sm-2.text-right
-                        label 出力ファイル名
-                      div.col-sm-5
-                        input.form-control.input-sm#fileName(type="text"
-                                                    placeholder="image_[###].png")
-                      div.col-sm-2.text-right
-                        label 開始番号
-                      div.col-sm-2
-                        input.form-control.input-sm#fileStart(type="text"
-                                                    placeholder="0")
-                    div.form-group
-                      div.col-sm-7
-                        p #の部分が数字になります。
-                          br
-                          | 例) "output[###].png"とした場合、
-                          | 出力されるファイルは"output000.png","output001.png","output002.png"...となります
-                      div.col-sm-4
-                        p 数字の開始番号です。
-                          br
-                          | ファイル名を001から始めたい場合には1とする必要があります。
-                    div.form-group
-                      div.col-sm-2
-                        label オプション
-                      div.col-sm-10
-                        //
-                          div.checkbox-inline
-                            input(type="checkbox")
-                            b 1ビットカラー圧縮(未実装)
-                        div.checkbox-inline
-                          input#transparency(type="checkbox"
-                                checked="checked")
-                          b 透明度あり
+                            input#transparency(type="checkbox"
+                                  checked="checked")
+                            b 透明度あり
       div.row
         div.col-xs-12.col-sm-12.col-md-12.col-lg-12
           //--------------------------------------------------------------------出力欄
@@ -192,13 +196,12 @@ html(lang="ja")
                   button.btn.btn-default(  type="button"
                                           data-dismiss="modal") close
     footer.container-fluid(style="background-color:#333333;margin-top:30px;padding:30px;")
-      div
-        div.row
-          div.col-sm-12.text-center
-            p(style="color:#EEEEEE;")
-              | designed by yuuho
-              br
-              | twitter : @__yuuho__
-              br
-              | github :&nbsp;
-              a(href="https://github.com/yuuho/") yuuho
+      div.row
+        div.col-sm-12.text-center
+          p(style="color:#EEEEEE;")
+            | designed by yuuho
+            br
+            | twitter : @__yuuho__
+            br
+            | github :&nbsp;
+            a(href="https://github.com/yuuho/") yuuho

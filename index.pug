@@ -41,11 +41,11 @@ html(lang="ja")
       //--------------------------------------------------------------------入力ファイル一覧
       div.row
         div.col-xs-12.col-sm-12.col-md-12.col-lg-12
-          h2 読み込んだファイル
           div.row
             div.col-xs-12.col-sm-12.col-md-12.col-lg-12
-              div.panel.panel-default
-                div.panel-body
+              div.card.bg-light.mb-3
+                div.card-header 読み込んだファイル
+                div.card-body
                   table.table.table-condensed
                     thead
                       tr
@@ -57,17 +57,17 @@ html(lang="ja")
                     tbody#loadedTable
           div.row
             div.col-xs-12.col-sm-12.col-md-4.col-lg-4
-              div.panel.panel-default
+              div.card.bg-light
                 //----------------------------------------------------------------プレビュー一覧
-                div.panel-heading 簡易プレビュー
-                  span.badge.pull-right#badge 0
-                div.panel-body
-                  div.row.pre-scrollable.text-center#previews
-            div.col-xs-12.col-sm-12.col-md-8.col-lg-8.panel.panel-default
+                div.card-header 簡易プレビュー
+                  span.badge.badge-dark.float-right#badge 0
+                div.card-body
+                  div#previews(style="overflow-x:hidden;overflow-y:scroll;height:500px;")
+            div.col-xs-12.col-sm-12.col-md-8.col-lg-8
               //----------------------------------------------------------------大プレビュー
-              div.panel-body
-                div#editAreaSize
-                  canvas#editArea
+              div.card.bg-light.mb-3
+                div.card-body#editAreaSize
+                  canvas.mw-100#editArea
       //------------------------------------------------------------------バッチ処理設定
       div.row
         div.col-xs-12.col-sm-12.col-md-12.col-lg-12

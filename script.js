@@ -501,10 +501,11 @@ function fileToListObj(file,index){
   obj.size  = file.size;
 
   obj.thumbnail = document.createElement("div");
-  obj.thumbnail.classList.add("col-xs-4","col-sm-3","col-md-12","col-lg-12");
+  obj.thumbnail.classList.add("row");
+  obj.thumbnail.style.border = "solid 1px black";
 
   const a = document.createElement("a");
-  a.classList.add("thumbnail");
+  a.classList.add("col-md-12");
   a.addEventListener("click",selectFile,false);
   obj.thumbnail.appendChild(a);
 
@@ -526,6 +527,9 @@ function fileToListObj(file,index){
           obj.img = img;
           obj.width = img.naturalWidth;
           obj.height  = img.naturalHeight;
+          img.style.display = "block";
+          img.style.width = "100%";
+          img.style.height = "auto";
           a.appendChild(img);
           resolve(obj);
         };
